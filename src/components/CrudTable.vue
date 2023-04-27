@@ -269,7 +269,7 @@ export default {
   methods: {
     getProduct() {
       this.$axios
-        .get("http://94.158.54.194:9092/api/product")
+        .get("https://94.158.54.194:9092/api/product")
         .then((res) => {
           this.product.splice(0, this.product.length, ...res.data);
         })
@@ -286,7 +286,7 @@ export default {
     },
     deleteProduct(id) {
       this.$axios
-        .delete("http://94.158.54.194:9092/api/product/" + id)
+        .delete("https://94.158.54.194:9092/api/product/" + id)
         .then((response) => {
           this.getProduct();
         });
@@ -295,7 +295,7 @@ export default {
     onSubmit() {
       if (this.bean.id != null) {
         this.$axios
-          .put("http://94.158.54.194:9092/api/product", this.bean)
+          .put("https://94.158.54.194:9092/api/product", this.bean)
           .then((response) => {
             this.persistent = false
             this.bean = {};
@@ -303,7 +303,7 @@ export default {
           });
       } else {
         this.$axios
-          .post("http://94.158.54.194:9092/api/product", this.bean)
+          .post("https://94.158.54.194:9092/api/product", this.bean)
           .then((response) => {
             this.persistent = false
             this.bean = {};
